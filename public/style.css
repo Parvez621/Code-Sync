@@ -1,0 +1,328 @@
+/* General Reset */
+.leftBox {
+  background-color: #1e1e1e;
+  padding: 20px;
+  border-radius: 8px;
+  color: white;
+  text-align: left;
+  font-weight: bold;
+  font-size: 14px;
+  max-width: 180px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #1c1e29;
+  color: #fff;
+}
+
+/* Home Page Styles */
+.homePageWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.formWrapper {
+  background: #282a36;
+  padding: 20px;
+  border-radius: 10px;
+  width: 400px;
+  max-width: 90%;
+}
+
+.homePageLogo {
+  height: 80px;
+  margin-bottom: 30px;
+}
+
+.mainLabel {
+  margin-bottom: 20px;
+  margin-top: 0;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputBox {
+  padding: 10px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  margin-bottom: 14px;
+  background: #eee;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.btn {
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.joinBtn {
+  background: #4aed88;
+  width: 100px;
+  margin-left: auto;
+}
+
+.joinBtn:hover {
+  background: #2b824c;
+}
+
+.createInfo {
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.createNewBtn {
+  color: #4aed88;
+  text-decoration: none;
+  border-bottom: 1px solid #4aed88;
+  transition: all 0.3s ease-in-out;
+}
+
+.createNewBtn:hover {
+  color: #368654;
+  border-color: #368654;
+}
+
+/* Main Application Styles */
+.mainWrap {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+}
+
+.asideWrap {
+  display: flex;
+  background: #1c1e29;
+  padding: 10px;
+  color: #fff;
+  flex-direction: column;
+  width: 15%;
+}
+
+.logo {
+  border-bottom: 1px solid #424242;
+  padding-bottom: 10px;
+}
+
+.logoImage {
+  height: 60px;
+}
+
+.asideInner {
+  flex: 1;
+}
+
+.clientsList {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.client {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  font-weight: bold;
+}
+
+.userName {
+  margin-top: 10px;
+}
+
+.leaveBtn {
+  background: #ff4b5c;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.leaveBtn:hover {
+  background: #d43f4a;
+}
+
+.editorWrap {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  width: 60%;
+  height: 100%;
+}
+
+/* 🔽 Language + Version Dropdowns */
+.langSelectRow {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.langSelectRow select {
+  flex: 1;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  background: #343746;
+  color: #fff;
+  text-align-last: center;
+}
+
+
+.CodeMirror,
+#codeArea {
+  font-size: 18px;
+  line-height: 1.5;
+  min-height: 70vh;
+  width: 100%;
+  background-color: #1e1e2e;
+  color: #fff;
+  border: none;
+  resize: none;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.IO-container {
+  display: flex;
+  justify-content: left;
+  min-height: calc(4vh);
+  width: 100%;
+}
+
+.inputArea {
+  font-size: 16px;
+  line-height: 1.6;
+  padding-top: 10px;
+  background-color: rgba(0, 0, 0, 0.401);
+  color: white;
+  height: calc(15vh);
+  width: 100%;
+  border: none;
+  resize: none;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.runBtn {
+  color: white;
+  background-color: rgb(99, 92, 232);
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.chatWrap {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  height: 100%;
+}
+
+.chatArea {
+  font-size: 18px;
+  line-height: 1.6;
+  padding-top: 10px;
+  background-color: #1c1e29;
+  color: white;
+  border: 1px solid #2e2e3a;
+  min-height: calc(85vh);
+  height: calc(92vh);
+  padding: 10px;
+  overflow-y: auto;
+}
+
+.sendChatWrap {
+  display: flex;
+  height: calc(5vh);
+  align-items: center;
+  padding: 5px;
+}
+
+.sendBtn {
+  color: white;
+  background-color: rgb(99, 92, 232);
+  width: 30%;
+  padding: 10px;
+  margin-left: 10px;
+}
+
+.textarea-style::-webkit-scrollbar {
+  width: 10px;
+}
+
+.textarea-style::-webkit-scrollbar-track {
+  background: #1c1e29;
+}
+
+.textarea-style::-webkit-scrollbar-thumb {
+  background: rgb(99, 92, 232);
+}
+
+.textarea-style::-webkit-scrollbar-thumb:hover {
+  background: rgb(189, 187, 225);
+}
+
+/* ✅ Output Area Styling */
+.outputArea {
+  width: 100%;
+  height: 150px;
+  margin-top: 10px;
+  background-color: #1e1e1e;
+  color: #d4d4d4;
+  font-family: monospace;
+  padding: 10px;
+  border: none;
+  resize: none;
+  border-radius: 8px;
+}
+
+/* Base styling for all remote cursors */
+.remote-cursor {
+  position: relative !important;
+  width: 2px;
+  background-color: black;
+  display: inline-block;
+}
+
+
+/* Smooth label transition and positioning */
+[class^="cursor-label-"]::after {
+  position: absolute;
+  top: -1.5em;
+  left: 0;
+  font-size: 12px;
+  background: #444;
+  color: #fff;
+  padding: 2px 6px;
+  border-radius: 4px;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+  opacity: 0.9;
+}
+
+/* Optional hover effect on cursor labels */
+[class^="cursor-label-"]:hover::after {
+  transform: scale(1.05);
+  opacity: 1;
+}

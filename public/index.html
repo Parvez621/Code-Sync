@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Code Sync</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- Home Page -->
+  <div class="homePageWrapper" id="homePage">
+    <div class="formWrapper">
+      <img class="homePageLogo" src="code-sync.png" alt="Code Sync Logo">
+      <h4 class="mainLabel">Paste invitation ROOM ID</h4>
+      <div class="inputGroup">
+        <input type="text" id="roomIdInput" class="inputBox" placeholder="ROOM ID">
+        <input type="text" id="usernameInput" class="inputBox" placeholder="USERNAME">
+        <button class="btn joinBtn" id="joinBtn">Join</button>
+        <span class="createInfo">
+          If you don't have an invite then create &nbsp;
+          <a href="#" class="createNewBtn" id="createNewBtn">new room</a>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Editor and Chat Page -->
+  <div class="mainWrap" id="editorPage" style="display: none;">
+    <!-- Sidebar -->
+    <div class="asideWrap">
+      <div class="logo">
+        <img class="logoImage" src="code-sync.png" alt="Code Sync Logo">
+      </div>
+      <div class="asideInner">
+        <div class="clientsList" id="clientsList">
+          <!-- List of connected clients will be displayed here -->
+        </div>
+      </div>
+      <button class="btn leaveBtn" id="leaveBtn">Leave</button>
+    </div>
+
+    <!-- Editor Section -->
+    <div class="editorWrap">
+      <div class="langSelectRow">
+        <select id="languageSelect">
+          <option value="python3">Python</option>
+          <option value="cpp">C++</option>
+          <option value="java">Java</option>
+        </select>
+        <select id="versionSelect">
+          <option value="4">v4 (Python 3 / Java)</option>
+          <option value="5">v5 (C++)</option>
+        </select>
+      </div>
+
+      <div id="editorContainer" style="height: 70vh; width: 100%"></div>
+
+      <div class="IO-container">
+        <textarea id="inputArea" class="inputArea textarea-style" placeholder="Input..."></textarea>
+      </div>
+
+      <button class="btn runBtn" id="runBtn">Run</button>
+      <button id="astBtn" class="action-btn">Generate AST</button>
+
+
+      <div class="IO-container">
+        <textarea id="outputArea" class="outputArea textarea-style" placeholder="Output..." readonly></textarea>
+      </div>
+    </div>
+
+    <!-- Chat Section -->
+    <div class="chatWrap">
+      <div id="chatArea" class="chatArea textarea-style"></div>
+      <div class="sendChatWrap">
+        <input type="text" id="chatInput" class="inputBox" placeholder="Type message...">
+        <button class="btn sendBtn" id="sendBtn">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/uuid@9.0.0/dist/umd/uuidv4.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.36.1/min/vs/loader.min.js"></script>
+  <script src="client.js" type="module"></script>
+</body>
+
+</html>

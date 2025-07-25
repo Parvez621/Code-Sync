@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>AST Viewer - CodeSync</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+  <style>
+    body {
+      margin: 0;
+      background-color: #1e1e1e;
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .ast-header {
+      padding: 15px 20px;
+      background: #282a36;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .ast-title {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+
+    .back-btn {
+      background: #4aed88;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+      color: white;
+      transition: background 0.2s;
+    }
+
+    .back-btn:hover {
+      background: #3bc576;
+    }
+
+    #ast-container {
+      width: 100%;
+      height: calc(100vh - 60px);
+    }
+
+    .node-tooltip {
+      background: #282a36;
+      padding: 8px;
+      border-radius: 4px;
+      color: white;
+      font-family: monospace;
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="ast-header">
+    <h1 class="ast-title">Abstract Syntax Tree</h1>
+    <button class="back-btn" onclick="window.history.back()">← Back to Editor</button>
+  </div>
+
+  <div id="ast-container"></div>
+
+  <script>
+    const chart = echarts.init(document.getElementById('ast-container'));
+
+    try {
+      const astData = JSON.parse(localStorage.getItem('astData'));
+      if (!astData) throw new Error("No AST data found");
+
+      const option = {
+        backgroundColor: '#1e1e1e',
+        tooltip: {
+          formatter: function (info) {
+            const value = info.value || info.name;
+            return `
+              <div class="node-tooltip">
+                <div><strong>Type:</strong> ${info.name}</div>
+                <div><strong>Value:</strong> ${value}</div>
+              </div>
+            `;
+          }
+        },
+        series: [{
+          type: 'tree',
+          data: [astData],
+          symbol: 'roundRect',
+          symbolSize: 10,
+          initialTreeDepth: 5,
+          orient: 'vertical',
+          label: {
+            formatter: function (params) {
+              const name = params.name || '';
+              const value = params.value || '';
+              return `${name}\n${value}`;
+            },
+            position: 'top',
+            rotate: 0,
+            verticalAlign: 'middle',
+            align: 'center',
+            fontSize: 12,
+            color: '#fff',
+            fontWeight: 'bold'
+          },
+          leaves: {
+            label: {
+              position: 'right',
+              verticalAlign: 'middle',
+              align: 'left'
+            }
+          },
+          emphasis: {
+            focus: 'descendant'
+          },
+          lineStyle: {
+            color: '#555',
+            width: 2,
+            curveness: 0.2
+          },
+          itemStyle: {
+            color: '#6c5ce7',
+            borderColor: '#4aed88',
+            borderWidth: 1,
+            shadowColor: 'rgba(0, 0, 0, 0.5)',
+            shadowBlur: 5
+          },
+          animationDuration: 800,
+          animationDurationUpdate: 1000
+        }]
+      };
+
+      chart.setOption(option);
+      localStorage.removeItem('astData');
+    } catch (err) {
+      console.error("Failed to load AST data:", err);
+      alert("Failed to load AST data.");
+    }
+
+    window.addEventListener('resize', () => chart.resize());
+  </script>
+</body>
+
+</html>
